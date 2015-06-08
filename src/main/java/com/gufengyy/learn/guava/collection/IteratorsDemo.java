@@ -8,11 +8,14 @@ import com.google.common.collect.Lists;
 
 public class IteratorsDemo {
     public static void main(String[] args) {
-        List<String> list = Lists.newArrayList("Apple","Pear","Peach");
+        List<String> list = Lists.newArrayList("Apple",null,"Pear","Peach");
         Predicate<String> condition = new Predicate<String>() {
             
             @Override
             public boolean apply(String input) {
+                if(input == null){
+                    return false;
+                }
                 return input.startsWith("P");
             }
         };
